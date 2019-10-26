@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simon Dice</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet"> 
     <script src="game.js"></script>
 </head>
-<body onload="comenzarJuego();">
+<body onload="mostrarStart(true);">
     <div id="colores">
-        <img src="simon.png" class="imagen">
+        <img src="simon.png" class="imagen" id="simon">
+        <img src="start.png" class="imagen" id="start">
         <img src="color (1).png" class="imagen color" id="color1">
         <img src="color (2).png" class="imagen color" id="color2">
         <img src="color (3).png" class="imagen color" id="color3">
@@ -29,11 +31,16 @@
         <div id="collider4" class="collider" onclick="tocarColor(this);">
 
         </div>
+        <div id="colliderStart" class="collider" onclick="comenzarJuego();">
+
+        </div>
     </div>
     <div id="numeros">
         <img src="numero1.png" class="numero" id="numero1">
         <img src="numero2.png" class="numero" id="numero2">
         <img src="numero3.png" class="numero" id="numero3">
     </div>
+    <h1>Simon Dice</h1>
+    <h2 id="puntaje">Puntaje: </h2>
 </body>
 </html>

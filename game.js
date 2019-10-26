@@ -2,31 +2,53 @@ var secuenciaDeColores = [];
 var coloresRevisados = 0;
 var juegoActivo = false;
 var nuevoColor = 0;
+var ultimoColorRevisado = 0;
+var startActivo = true;
+var puntaje = 0;
+var puntajeMasAlto = 0;
 
 function comenzarJuego(){
-    secuenciaDeColores = [];
-
-    cuentaInicial();
-    setTimeout(() => {
-        generarColor();
-        juegoActivo = true;
-    }, 3300);
+    if(startActivo){
+        startActivo = false;
+        secuenciaDeColores = [];
+        ultimoColorRevisado = 0;
+        puntaje = 0;
+        //cuentaInicial();
+        actualizarPuntaje(puntaje);
+        mostrarStart(false);
+        setTimeout(() => {
+            generarColor();
+            mostrarColores();
+            juegoActivo = true;
+        }, 0);
+    }
 }
 
 function tocarColor(colorID){
     if(juegoActivo){
-        var color = colorID.id;
-        verificarColores(colorID);
-        //juegoActivo = false;
+        var color = colorID.id[8];
+        verificarColor(color);
     }
 }
 
-function verificarColores(clr){
-    if(coloresRevisados < secuenciaDeColores.length){
-
-        generarColor();
+function verificarColor(clr){
+    if(clr == secuenciaDeColores[ultimoColorRevisado]){
+        ultimoColorRevisado++;
+        if(ultimoColorRevisado >= secuenciaDeColores.length){
+            ultimoColorRevisado = 0;
+            puntaje++;
+            actualizarPuntaje(puntaje);
+            generarColor();
+            mostrarColores();
+        }
     }else{
-        coloresRevisados = 0;
+        alert("PERDISTE");
+        if(puntaje > puntajeMasAlto){
+            puntajeMasAlto = puntaje;
+        }
+        mostrarStart(true);
+        startActivo = true;
+        juegoActivo = false;
     }
 }
 
@@ -41,6 +63,14 @@ function cuentaInicial(){
     setTimeout(function(){ numero3.style.display = "none";  }, 3300);
 }
 
+function mostrarColores(){
+    var delay = 0;
+    for(let i=1;i<=secuenciaDeColores.length;i++){
+        delay = (i-1) * 1300;
+        setTimeout(function(){ mostrarColor(secuenciaDeColores[i-1]); }, delay);
+    }
+}
+
 function mostrarColor(colorParaMostrar){
     setTimeout(() => {
         document.getElementById("color"+colorParaMostrar).style.visibility = "visible";
@@ -53,5 +83,17 @@ function mostrarColor(colorParaMostrar){
 function generarColor(){
     nuevoColor = Math.floor(Math.random() * 4 + 1);
     secuenciaDeColores.push(nuevoColor);
-    mostrarColor(nuevoColor);
+}
+
+function mostrarStart(mostrar){
+    var start = document.getElementById("start");
+    if(mostrar){
+        start.style.visibility = "visible";
+    }else{
+        start.style.visibility = "hidden";
+    }
+}
+
+function actualizarPuntaje(puntos){
+    document.getElementById("puntaje").innerHTML = ("Puntaje: " + puntos);
 }

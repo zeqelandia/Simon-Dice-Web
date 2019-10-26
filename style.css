@@ -4,9 +4,16 @@ html, body{
 
 .imagen{
     position: absolute;
+    width: 65vw;
+    margin-left: 16.5vw;
+    margin-top: 35vw;
 }
 
 .color{
+    visibility: hidden;
+}
+
+#start{
     visibility: hidden;
 }
 
@@ -16,8 +23,8 @@ body{
 }
 
 .collider{
-    width: 22vw;
-    height: 11vw;
+    width: 27vw;
+    height: 14vw;
     background-color: transparent;
     position: absolute;
     margin-top: 80vw;
@@ -25,26 +32,33 @@ body{
 
 #collider1{ /* AZUL */
     transform: rotate(-45deg);
-    margin-top: 7.5vw;
-    margin-left: 2vw;
+    margin-top: 46vw;
+    margin-left: 20vw;
 }
 
 #collider2{ /* ROJO */
     transform: rotate(45deg);
-    margin-top: 7.5vw;
-    margin-left: 25vw;
+    margin-top: 46vw;
+    margin-left: 51vw;
 }
 
 #collider3{ /* VERDE */
     transform: rotate(-45deg);
-    margin-top: 30vw;
-    margin-left: 24vw;
+    margin-top: 75.5vw;
+    margin-left: 51vw;
 }
 
 #collider4{ /* AMARILLO */
     transform: rotate(45deg);
-    margin-top: 30vw;
-    margin-left: 2vw;
+    margin-top: 75.5vw;
+    margin-left: 20vw;
+}
+
+#colliderStart{
+    margin-top: 58vw;
+    margin-left: 40vw;
+    width: 18vw;
+    height: 20vw;
 }
 
 .numero{
@@ -54,3 +68,34 @@ body{
     margin-top: 25vw;
     display: none;
 }
+
+#simon{
+    filter: grayscale(25%);
+}
+
+h2{
+    font-family: 'Catamaran', sans-serif;
+    color: white;
+    position: absolute;
+}
+
+h2{
+    margin-top: 110vw;
+    margin-left: 35vw;
+    color: #fff;
+  font-size: 6vw;
+  text-shadow: 
+    0 1px 0 #ccc, 
+    0 2px 0 #c9c9c9, 
+    0 3px 0 #bbb, 
+    0 4px 0 #b9b9b9, 
+    0 4px 0 #aaa, 
+    0 4px 1px rgba(0,0,0,.2), 
+    0 0 4px rgba(0,0,0,.2), 
+    0 1px 3px rgba(0,0,0,.6), 
+    0 3px 4px rgba(0,0,0,.4), 
+    0 4px 10px rgba(0,0,0,.5), 
+    0 4px 4px rgba(0,0,0,.4), 
+    0 10px 10px rgba(0,0,0,.3);
+}
+
