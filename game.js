@@ -64,17 +64,19 @@ function cuentaInicial(){
 }
 
 function mostrarColores(){
+    juegoActivo = false;
     var delay = 0;
     for(let i=1;i<=secuenciaDeColores.length;i++){
         delay = (i-1) * 1300;
         setTimeout(function(){ mostrarColor(secuenciaDeColores[i-1]); }, delay);
     }
+    juegoActivo = true;
 }
 
 function mostrarColor(colorParaMostrar){
     setTimeout(() => {
         document.getElementById("color"+colorParaMostrar).style.visibility = "visible";
-    }, 100);
+    }, 300);
     setTimeout(() => {
         document.getElementById("color"+colorParaMostrar).style.visibility = "hidden";
     }, 1300);
@@ -96,4 +98,15 @@ function mostrarStart(mostrar){
 
 function actualizarPuntaje(puntos){
     document.getElementById("puntaje").innerHTML = ("Puntaje: " + puntos);
+}
+
+function parpadearColor(clr, visible){
+    if(juegoActivo){
+        var color2 = document.getElementById("color"+clr.id[8]);
+        if(visible){
+            color2.style.visibility = "visible";
+        }else{
+            color2.style.visibility = "hidden";
+        }
+    }
 }
