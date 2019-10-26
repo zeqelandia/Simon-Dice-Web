@@ -1,0 +1,56 @@
+html, body{
+    margin: 0px;
+}
+
+.imagen{
+    position: absolute;
+}
+
+.color{
+    visibility: hidden;
+}
+
+body{
+    background: url("fondo.jpg");
+    background-repeat: no-repeat;
+}
+
+.collider{
+    width: 22vw;
+    height: 11vw;
+    background-color: transparent;
+    position: absolute;
+    margin-top: 80vw;
+}
+
+#collider1{ /* AZUL */
+    transform: rotate(-45deg);
+    margin-top: 7.5vw;
+    margin-left: 2vw;
+}
+
+#collider2{ /* ROJO */
+    transform: rotate(45deg);
+    margin-top: 7.5vw;
+    margin-left: 25vw;
+}
+
+#collider3{ /* VERDE */
+    transform: rotate(-45deg);
+    margin-top: 30vw;
+    margin-left: 24vw;
+}
+
+#collider4{ /* AMARILLO */
+    transform: rotate(45deg);
+    margin-top: 30vw;
+    margin-left: 2vw;
+}
+
+.numero{
+    position: absolute;
+    width: 30vw;
+    margin-left: 33vw;
+    margin-top: 25vw;
+    display: none;
+}
